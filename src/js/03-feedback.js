@@ -30,6 +30,9 @@ form.addEventListener('input', () => {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+  if (emailInput.value.trim() === '' || messageTextarea.value.trim() === '') {
+   alert('Будь ласка, заповніть всі поля форми');
+  } else {
   const formData = {
     email: emailInput.value,
     message: messageTextarea.value,
@@ -38,6 +41,7 @@ form.addEventListener('submit', (event) => {
   localStorage.removeItem(storageKey);
   emailInput.value = '';
   messageTextarea.value = '';
+  }
 });
 
 window.addEventListener('load', fillFormFieldsFromLocalStorage);

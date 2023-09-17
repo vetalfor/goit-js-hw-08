@@ -19,25 +19,12 @@ const renderImage = (arr, container) => {
 
 renderImage(galleryItems, galleryList);
 
-
-galleryList.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    if (event.target.nodeName !== 'IMG') {
-        return;
-    }
-
-    if (!lightbox) {
-        lightbox = new SimpleLightbox('.gallery a', {
+    lightbox = new SimpleLightbox('.gallery a', {
             captions: true,
             captionsData: 'alt',
             captionPosition: 'bottom',
             captionDelay: 250
         });
-    }
-
-    lightbox.open();
-});
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && lightbox) {
